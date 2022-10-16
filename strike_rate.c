@@ -11,6 +11,6 @@ int main()
     scanf("%d",&balls);
     printf("Enter the number of runs made: ");
     scanf("%d",&runs);
-    printf("Strike rate is %f",SR(balls,runs));
+    printf("Strike rate is %.2f",SR(balls,runs));
     return 0;
 }

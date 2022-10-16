@@ -3,9 +3,11 @@
 float getCircumference(float radius){
     return 2*3.14*radius;
 }
+
 float getCharges(float rate,float radius){
     return rate*getCircumference(radius);
 }
+
 int main()
 {
     float radius,rate;
