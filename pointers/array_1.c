@@ -6,6 +6,10 @@ void printArray(int *p, int n);
 void getMinMax(int *p, int n);
 float getAverage(int *p, int n);
 void getStandardDeviation(int *p, int n);
+void indexOf(int *p, int n);
+void valueAt(int *p, int n);
+void reverseArray(int *p, int n);
+void sortArray(int *p, int n);
 
 int main()
 {
@@ -16,8 +20,11 @@ int main()
     readArray(&arr[0], n);
     printArray(&arr[0], n);
     getMinMax(&arr[0], n);
-    // getAverage(&arr[0], n);
     getStandardDeviation(&arr[0], n);
+    indexOf(&arr[0], n);
+    valueAt(&arr[0], n);
+    reverseArray(&arr[0], n);
+    sortArray(&arr[0], n);
     return 0;
 }
 
@@ -32,7 +39,7 @@ void readArray(int *p, int n)
 
 void printArray(int *p, int n)
 {
-    printf("The array is: \n[ ");
+    printf("The array is: [ ");
     for (int i = 0; i < n; i++)
     {
         if (i == n - 1)
@@ -78,4 +85,75 @@ void getStandardDeviation(int *p, int n)
         sumOfSquares += (*(p + i) - average) * (*(p + i) - average);
     }
     printf("\nStandard Deviation: %f", sqrt(sumOfSquares));
+}
+
+void indexOf(int *p, int n)
+{
+    int value;
+    printf("\nEnter the value to find the index of: ");
+    scanf("%d", &value);
+    for (int i = 0; i < n; i++)
+    {
+        if (*(p + i) == value)
+        {
+            printf("Index of %d: %d", value, i);
+            break;
+        }
+    }
+}
+
+void valueAt(int *p, int n)
+{
+    int index;
+    printf("\nEnter the index to find the value at: ");
+    scanf("%d", &index);
+    printf("Value at %d: %d", index, *(p + index));
+}
+
+void reverseArray(int *p, int n)
+{
+    printf("\nReversed array is: [ ");
+    for (int i = n - 1; i > -1; i--)
+    {
+        if (i == 0)
+        {
+            printf("%d", *(p + i));
+        }
+        else
+        {
+            printf("%d, ", *(p + i));
+        }
+    }
+    printf(" ]");
+}
+
+// selection sort
+void sortArray(int *p, int n)
+{
+    int temp;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (*(p + i) > *(p + j))
+            {
+                temp = *(p + i);
+                *(p + i) = *(p + j);
+                *(p + j) = temp;
+            }
+        }
+    }
+    printf("\nThe sorted array is: [ ");
+    for (int i = 0; i < n; i++)
+    {
+        if (i == n - 1)
+        {
+            printf("%d", *(p + i));
+        }
+        else
+        {
+            printf("%d, ", *(p + i));
+        }
+    }
+    printf(" ]\n");
 }
