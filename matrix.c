@@ -5,7 +5,8 @@ void displayMatrix(int arr[100][100], int size);
 void sumMatrix(int arr1[100][100], int arr2[100][100], int arr3[100][100], int size);
 void multiplyMatrix(int arr1[100][100], int arr2[100][100], int arr3[100][100], int size);
 void transposeMatrix(int arr[100][100], int arr2[100][100], int size);
-void verticalFlip(int arr[100][100], int arr2[100][100], int size);
+void verticalFlip(int arr[100][100], int size);
+void horizontalFlip(int arr[100][100], int size);
 
 int main()
 {
@@ -30,6 +31,10 @@ int main()
     printf("Transpose of A: \n");
     transposeMatrix(arr1, arr5, size);
     displayMatrix(arr5, size);
+    printf("Vertical flip of A: \n");
+    verticalFlip(arr1, size);
+    printf("Horizintal flip of A: \n");
+    horizontalFlip(arr1, size);
     return 0;
 }
 
@@ -77,5 +82,23 @@ void transposeMatrix(int arr[100][100], int arr2[100][100], int size) {
         for (int j = 0; j < size; j++) {
             arr2[i][j] = arr[j][i];
         }
+    }
+}
+
+void verticalFlip(int arr[100][100], int size) {
+    for (int i = size - 1; i > -1; i--) {
+        for (int j = 0; j < size; j++) {
+            printf("%3d", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+void horizontalFlip(int arr[100][100], int size) {
+    for (int i = 0; i < size; i++) {
+        for (int j = size - 1; j > -1; j--) {
+            printf("%3d", arr[i][j]);
+        }
+        printf("\n");
     }
 }
