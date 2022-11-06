@@ -4,6 +4,8 @@ void readMatrix(int (*p)[100], int n);
 void printMatrix(int (*p)[100], int n);
 void addMatrix(int (*p)[100],int (*q)[100], int (*s)[100], int n);
 void multiplyMatrix(int (*p)[100],int (*q)[100], int (*m)[100], int n);
+void verticalFlip(int (*p)[100], int n);
+void horizontalFlip(int (*p)[100], int n);
 
 int main()
 {
@@ -30,6 +32,10 @@ int main()
     printMatrix(sum, n);
     printf("The multiplication of the matrices:\n");
     printMatrix(mul, n);
+    printf("Vertically flipped Array 1:\n");
+    verticalFlip(arr1, n);
+    printf("Horizontally flipped Array 1:\n");
+    horizontalFlip(arr1, n);
 
     return 0;
 }
@@ -81,5 +87,23 @@ void multiplyMatrix(int (*p)[100],int (*q)[100], int (*m)[100], int n)
                 *(*(m + r) + c) += *(*(p + r) + i) * *(*(q + i) + c);
             }
         }
+    }
+}
+
+void verticalFlip(int (*p)[100], int n) {
+    for (int r = n - 1; r > -1; r--) {
+        for (int c = 0; c < n; c++) {
+            printf("%3d", *(*(p + r) + c));
+        }
+        printf("\n");
+    }
+}
+
+void horizontalFlip(int (*p)[100], int n) {
+    for (int r = 0; r < n; r++) {
+        for (int c = n - 1; c > -1; c--) {
+            printf("%3d", *(*(p + r) + c));
+        }
+        printf("\n");
     }
 }
