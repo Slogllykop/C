@@ -2,8 +2,8 @@
 
 void readMatrix(int (*p)[100], int n);
 void printMatrix(int (*p)[100], int n);
-void addMatrix(int (*p)[100],int (*q)[100], int (*s)[100], int n);
-void multiplyMatrix(int (*p)[100],int (*q)[100], int (*m)[100], int n);
+void addMatrix(int (*p)[100], int (*q)[100], int (*s)[100], int n);
+void multiplyMatrix(int (*p)[100], int (*q)[100], int (*m)[100], int n);
 void verticalFlip(int (*p)[100], int n);
 void horizontalFlip(int (*p)[100], int n);
 
@@ -64,7 +64,7 @@ void printMatrix(int (*p)[100], int n)
     }
 }
 
-void addMatrix(int (*p)[100],int (*q)[100], int (*s)[100],int n)
+void addMatrix(int (*p)[100], int (*q)[100], int (*s)[100], int n)
 {
     for (int r = 0; r < n; r++)
     {
@@ -75,7 +75,7 @@ void addMatrix(int (*p)[100],int (*q)[100], int (*s)[100],int n)
     }
 }
 
-void multiplyMatrix(int (*p)[100],int (*q)[100], int (*m)[100], int n)
+void multiplyMatrix(int (*p)[100], int (*q)[100], int (*m)[100], int n)
 {
     for (int r = 0; r < n; r++)
     {
@@ -90,18 +90,24 @@ void multiplyMatrix(int (*p)[100],int (*q)[100], int (*m)[100], int n)
     }
 }
 
-void verticalFlip(int (*p)[100], int n) {
-    for (int r = n - 1; r > -1; r--) {
-        for (int c = 0; c < n; c++) {
+void verticalFlip(int (*p)[100], int n)
+{
+    for (int r = n - 1; r > -1; r--)
+    {
+        for (int c = 0; c < n; c++)
+        {
             printf("%3d", *(*(p + r) + c));
         }
         printf("\n");
     }
 }
 
-void horizontalFlip(int (*p)[100], int n) {
-    for (int r = 0; r < n; r++) {
-        for (int c = n - 1; c > -1; c--) {
+void horizontalFlip(int (*p)[100], int n)
+{
+    for (int r = 0; r < n; r++)
+    {
+        for (int c = n - 1; c > -1; c--)
+        {
             printf("%3d", *(*(p + r) + c));
         }
         printf("\n");
